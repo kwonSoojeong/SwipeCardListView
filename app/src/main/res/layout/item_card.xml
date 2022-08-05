@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="200dp">
+        >
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
@@ -21,6 +21,7 @@
             android:layout_height="0dp"
             app:cardBackgroundColor="@color/purple_700"
             app:cardCornerRadius="20dp"
+            android:layout_marginBottom="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

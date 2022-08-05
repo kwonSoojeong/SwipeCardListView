@@ -77,7 +77,9 @@ class SliderTransformer : ViewPager2.PageTransformer {
     override fun transformPage(page: View, position: Float) {
         val cardView = page.findViewById<CardView>(R.id.card_view)
         val cardViewHeight = cardView.height
+
         page.apply {
+
             when {
                 position < 0.0f -> {
                     val scale = SCALE_DEFAULT + SCALE_FACTOR * position
@@ -112,6 +114,11 @@ class SliderTransformer : ViewPager2.PageTransformer {
                     }
                 }
             }
+            Log.d(
+                "transformPage",
+                "transform \nposition : ${position},\n translationY : ${translationY}, \n scaleX : ${scaleX}, \n" +
+                        " scaleY: ${scaleY}, \n alpha: ${alpha}"
+            )
         }
     }
 }
