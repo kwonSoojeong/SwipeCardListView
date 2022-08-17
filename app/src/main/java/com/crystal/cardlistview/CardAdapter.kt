@@ -42,11 +42,22 @@ class CardAdapter(data: MutableList<Store> = mutableListOf()) :
         )
     }
 
+    override fun getItemId(position: Int): Long {
+        return if (dataList.isNotEmpty()) {
+            super.getItemId(position % dataList.size)
+        } else {
+            super.getItemId(position)
+        }
+    }
+
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        holder.bind(dataList[position])
+//        holder.bind(dataList[position])
+        if(dataList.isNotEmpty()){
+            holder.bind(dataList[position % dataList.size])
+        }
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return if(dataList.isNotEmpty()) Int.MAX_VALUE else 0
     }
 }
